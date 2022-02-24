@@ -5,6 +5,7 @@ type Photo {
   user: User!
   userId: String!
   hashtags: [Hashtag!]!
+  likes: Int!
   createdAt: String!
   updatedAt: String!
 }
@@ -14,6 +15,16 @@ type Hashtag {
   hashtag: String!
   photos(page: Int!): [Photo!]!
   totalPhotos: Int!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Like {
+  id: String!
+  photo: Photo!
+  photoId: String!
+  user: User!
+  userId: String!
   createdAt: String!
   updatedAt: String!
 }

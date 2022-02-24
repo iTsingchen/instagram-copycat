@@ -12,6 +12,7 @@ type User {
   isMe: Boolean!
 
   photos(page: Int!): [Photo!]
+  likes: Int!
 
   createdAt: String!
   updatedAt: String!

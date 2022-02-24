@@ -21,6 +21,13 @@ export default {
 
       return user;
     },
+
+    likes: async ({ id }: Photo, _: unknown, { client }: ApolloContext) =>
+      client.like.count({
+        where: {
+          photoId: id,
+        },
+      }),
   },
 
   Hashtag: {
