@@ -1,0 +1,3 @@
+type Query {
+  searchPhotos(keyword: String!): [Photo]!
+}

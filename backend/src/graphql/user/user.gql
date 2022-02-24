@@ -11,6 +11,8 @@ type User {
   isFollowing: Boolean!
   isMe: Boolean!
 
+  photos(page: Int!): [Photo!]
+
   createdAt: String!
   updatedAt: String!
 }
