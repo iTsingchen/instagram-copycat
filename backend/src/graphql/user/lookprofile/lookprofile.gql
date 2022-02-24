@@ -1,0 +1,3 @@
+type Query {
+  lookProfile(username: String!): User
+}

@@ -1,0 +1,8 @@
+{
+  "name": "instagram",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:iTsingchen/instagram.git",
+  "author": "anzhuc <anzhuc@keyamedical.com>",
+  "license": "MIT"
+}
