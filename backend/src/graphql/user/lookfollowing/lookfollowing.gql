@@ -1,0 +1,10 @@
+type LookFollowingResult {
+  ok: Boolean!
+  error: String
+
+  following: [User]
+}
+
+type Query {
+  lookFollowing(username: String!, lastId: String): LookFollowingResult
+}

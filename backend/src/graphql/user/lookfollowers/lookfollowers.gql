@@ -1,0 +1,11 @@
+type LookFollowersResult {
+  ok: Boolean!
+  error: String
+
+  followers: [User]
+  totalPage: Int
+}
+
+type Query {
+  lookFollowers(username: String!, page: Int!): LookFollowersResult
+}
