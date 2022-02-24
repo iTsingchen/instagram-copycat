@@ -1,0 +1,19 @@
+type Photo {
+  id: String!
+  file: String!
+  caption: String
+  user: User!
+  userId: String!
+  hashtags: [Hashtag!]!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Hashtag {
+  id: String!
+  hashtag: String!
+  photos(page: Int!): [Photo!]!
+  totalPhotos: Int!
+  createdAt: String!
+  updatedAt: String!
+}

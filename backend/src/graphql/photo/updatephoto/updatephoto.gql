@@ -1,0 +1,9 @@
+type UpdatePhotoResult {
+  ok: Boolean!
+  error: String
+  photo: Photo
+}
+
+type Mutation {
+  updatePhoto(id: ID!, caption: String!): UpdatePhotoResult
+}

@@ -1,0 +1,9 @@
+type UploadPhotoResult {
+  ok: Boolean!
+  photo: Photo
+  error: String!
+}
+
+type Mutation {
+  uploadPhoto(file: String!, caption: String): Photo
+}

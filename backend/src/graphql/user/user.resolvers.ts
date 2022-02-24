@@ -43,5 +43,20 @@ export default {
 
       return parent.id === user.id;
     },
+
+    photos: async (
+      { id }: User,
+      { page }: { page: number },
+      { client }: ApolloContext
+    ) => {
+      const PAGE_SIZE = 10;
+      const photos = await client.photo.findMany({
+        where: { userId: id },
+        take: PAGE_SIZE,
+        skip: Math.max(0, page - 1) * PAGE_SIZE,
+      });
+
+      return photos;
+    },
   },
 };
