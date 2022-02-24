@@ -1,0 +1,8 @@
+type ToggleLikeResult {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  toggleLike(id: ID!): ToggleLikeResult
+}

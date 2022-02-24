@@ -58,5 +58,13 @@ export default {
 
       return photos;
     },
+
+    likes: async ({ id }: User, _: unknown, { client }: ApolloContext) => {
+      const photos = await client.like.count({
+        where: { userId: id },
+      });
+
+      return photos;
+    },
   },
 };
