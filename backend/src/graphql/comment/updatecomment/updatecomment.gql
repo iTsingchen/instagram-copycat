@@ -1,0 +1,3 @@
+type Mutation {
+  updateComment(id: ID!, payload: String!): MutationResponse!
+}
