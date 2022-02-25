@@ -1,0 +1,18 @@
+type Message {
+  id: String!
+  payload: String!
+  read: Boolean!
+  user: User!
+  room: Room!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Room {
+  id: String!
+  users: [User]!
+  messages: [Message]!
+  unreadTotal: Int!
+  createdAt: String!
+  updatedAt: String!
+}
