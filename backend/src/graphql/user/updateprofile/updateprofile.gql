@@ -1,8 +1,3 @@
-type UpdateProfileResult {
-  ok: Boolean!
-  error: String
-}
-
 type Mutation {
   updateProfile(
     nickname: String
@@ -11,5 +6,5 @@ type Mutation {
     password: String
     bio: String
     avatar: Upload
-  ): UpdateProfileResult
+  ): MutationResponse!
 }

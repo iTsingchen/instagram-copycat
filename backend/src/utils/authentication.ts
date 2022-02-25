@@ -1,5 +1,7 @@
 import type { PrismaClient, User } from "@prisma/client";
 import { verify } from "jsonwebtoken";
+import {} from "apollo-server-express";
+
 import { ApolloContext } from "src/types";
 
 export const getUser = async (client: PrismaClient, token?: string) => {
@@ -19,20 +21,24 @@ export const getUser = async (client: PrismaClient, token?: string) => {
 };
 
 type RequiredUserApolloCtx = ApolloContext & { user: User };
+type ResolverInfo = { operation: { operation: string } };
 
-type Resolver<P, A, I, R> = (
+type Resolver<P, A, R> = (
   parent: P,
   args: A,
   ctx: RequiredUserApolloCtx,
-  info: I
+  info: ResolverInfo
 ) => Promise<R> | R;
 
 export const protectedResolver =
-  <P, A, I, R>(resolver: Resolver<P, A, I, R>) =>
-  (parent: P, args: A, ctx: ApolloContext, info: I) => {
+  <P, A, R>(resolver: Resolver<P, A, R>) =>
+  (parent: P, args: A, ctx: ApolloContext, info: ResolverInfo) => {
     const { user } = ctx;
 
     if (!user) {
+      if (info.operation.operation === "query") {
+        return null;
+      }
       return { ok: false, error: "you must be logged in to query this schema" };
     }
 

@@ -28,6 +28,16 @@ export default {
           photoId: id,
         },
       }),
+
+    comments: async ({ id }: Photo, _: unknown, { client }: ApolloContext) =>
+      client.comment.count({
+        where: {
+          photoId: id,
+        },
+      }),
+
+    isMine: ({ userId }: Photo, _: unknown, { user }: ApolloContext) =>
+      user ? user.id === userId : false,
   },
 
   Hashtag: {

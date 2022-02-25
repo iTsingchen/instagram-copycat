@@ -1,0 +1,3 @@
+type Query {
+  lookPhotoComments(photoId: ID!, page: Int!): [Comment]
+}

@@ -3,9 +3,10 @@ type Photo {
   file: String!
   caption: String
   user: User!
-  userId: String!
   hashtags: [Hashtag!]!
   likes: Int!
+  comments: Int!
+  isMine: Boolean!
   createdAt: String!
   updatedAt: String!
 }
@@ -22,9 +23,7 @@ type Hashtag {
 type Like {
   id: String!
   photo: Photo!
-  photoId: String!
   user: User!
-  userId: String!
   createdAt: String!
   updatedAt: String!
 }

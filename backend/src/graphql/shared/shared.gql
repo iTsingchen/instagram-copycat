@@ -1,0 +1,4 @@
+type MutationResponse {
+  ok: Boolean!
+  error: String
+}

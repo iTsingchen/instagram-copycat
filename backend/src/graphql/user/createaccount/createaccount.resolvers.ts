@@ -39,7 +39,10 @@ export default {
           ok: true,
         };
       } catch (err) {
-        return err;
+        return {
+          ok: false,
+          error: (err as Error).message,
+        };
       }
     },
   },
